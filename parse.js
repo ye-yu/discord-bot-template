@@ -10,8 +10,7 @@ function parse(context) {
     let { key, args } = getKeyAndArgs(content);
     try {
       console.log(`Requiring ${key}`);
-      let output = require(`./${key}`).call(args);
-      context.channel.send(output);
+      let output = require(`./${key}`).call({context: context, args: args});
     } catch (err) {
       console.error(err);
       context.channel.send("Your command is not recognised.");

@@ -21,6 +21,8 @@
   "homepage": "https://github.com/ye-yu/discord-bot#readme",
   "dependencies": {
     "discord.js": "^12.2.0",
-    "dotenv": "^8.2.0"
+    "dotenv": "^8.2.0",
+    "querystring": "^0.2.0",
+    "r2": "^2.0.1"
   }
 }
