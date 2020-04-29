@@ -4,17 +4,16 @@ const Discord = require("discord.js");
 function constructImageEmbed(url, attr = {}) {
   const defImageAttr = getDefaultImageAttr();
   Object.keys(attr).forEach(key => {
-    defAttr[key] = attr[key];
+    defImageAttr[key] = attr[key];
   });
 
   const imageEmbed = new Discord.MessageEmbed()
   .setColor(defImageAttr.color)
 	.setTitle(defImageAttr.title)
-	.setURL(defImageAttr.url)
-	.setAuthor(defImageAttr.author, defImageAttr.url, defImageAttr.url)
+	.setURL(url)
+	.setAuthor(defImageAttr.author, url, url)
 	.setDescription(defImageAttr.description)
-	.setThumbnail(defImageAttr.url)
-	.setImage(defImageAttr.url)
+	.setImage(url)
 	.setTimestamp();
 
   return imageEmbed;
@@ -24,7 +23,6 @@ function getDefaultImageAttr() {
   return {
     color: "#0099ff",
     title: "Abstract Title",
-    url: "https://placekitten.com/g/80/80",
     author: "Mr Nobody",
     description: "A description by Mr Nobody"
   };
