@@ -1,10 +1,32 @@
 "use strict";
 const PREFIX = "!";
+const utils = require("./utils");
 
 function parse(context) {
   if (context.author.bot) return;
   let content = context.content;
-  context.channel.send("Your message to me was " + content);
+  if (content.startsWith("!")) {
+    content = content.substring(1);
+    let { key, args } = getKeyAndArgs(content);
+    try {
+      console.log(`Requiring ${key}`);
+      let output = require(`./${key}`).call(args);
+      context.channel.send(`${output}`);
+    } catch (err) {
+      console.error(err);
+      context.channel.send("Your command is not recognised.");
+    }
+  } else {
+    context.channel.send("Your message to me was " + content);
+  }
+}
+
+function getKeyAndArgs(command) {
+  let split = command.split(" ");
+  return {
+    key: split[0],
+    args: split.splice(1)
+  }
 }
 
 function online(client) {
