@@ -26,7 +26,7 @@ function call(context) {
       context.context.channel.send(constructImageEmbed(data[0].url, {
         title: "Your On-demand Cat Picture",
         author: "The Cat API",
-        description: `This cat on-demand is supplied for you, ${context.context.author.username}!`
+        description: `This on-demand cat pic is supplied for you, ${context.context.author.username}!`
       }));
     });
   });
