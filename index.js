@@ -6,7 +6,5 @@ const { parse, online } = require("./parse");
 require("dotenv").config();
 
 client.on("ready", online);
-
 client.on("message", parse);
-
 client.login(process.env.TOKEN);
