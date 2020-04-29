@@ -1,0 +1,26 @@
+{
+  "name": "discord-bot",
+  "version": "0.0.1",
+  "description": "A discord bot for sending images",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ye-yu/discord-bot.git"
+  },
+  "keywords": [
+    "discord"
+  ],
+  "author": "ye-yu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ye-yu/discord-bot/issues"
+  },
+  "homepage": "https://github.com/ye-yu/discord-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0"
+  }
+}
