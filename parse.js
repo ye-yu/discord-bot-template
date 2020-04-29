@@ -11,7 +11,7 @@ function parse(context) {
     try {
       console.log(`Requiring ${key}`);
       let output = require(`./${key}`).call(args);
-      context.channel.send(`${output}`);
+      context.channel.send(output);
     } catch (err) {
       console.error(err);
       context.channel.send("Your command is not recognised.");
