@@ -9,12 +9,17 @@ function parse(context) {
 
 function online(client) {
   client.user.setActivity(`prefix ${PREFIX}`, { type: "LISTENING" });
-  console.info("Bot is online. List of channels");
-  client.channels.cache.forEach(channel => {
-    if (channel.type === "text") {
-      channel.send(`I am now online. My prefix is ${PREFIX}`);
-    }
-  });
+  console.info("Bot is online.");
+  client.channels.cache.forEach(sendOnlineMessageToChannel);
+}
+
+function sendOnlineMessageToChannel(channel) {
+  if (channel.type === "text") {
+    channel.send(`I am now online. My prefix is ${PREFIX}`)
+    .catch((err) => {
+      console.info(`Online message is not send to ${channel.name} because of ${err}`);
+    });
+  }
 }
 
 module.exports = {
