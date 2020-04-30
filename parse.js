@@ -5,7 +5,7 @@ const utils = require("./utils");
 function parse(context) {
   if (context.author.bot) return;
   let content = context.content;
-  if (content.startsWith("!")) {
+  if (content.startsWith(PREFIX)) {
     content = content.substring(1);
     let { key, args } = getKeyAndArgs(content);
     try {
@@ -36,7 +36,6 @@ function online(client) {
 
 function sendOnlineMessageToChannel(channel) {
   if (channel.type === "text") {
-    console.info(channel);
     channel.send(`I am now online. My prefix is ${PREFIX}`)
     .catch((err) => {
       console.info(`Online message is not send to ${channel.name} because of ${err}`);
