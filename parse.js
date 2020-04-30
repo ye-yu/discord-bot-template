@@ -36,10 +36,18 @@ function online(client) {
 
 function sendOnlineMessageToChannel(channel) {
   if (channel.type === "text") {
+    console.info(channel);
     channel.send(`I am now online. My prefix is ${PREFIX}`)
     .catch((err) => {
       console.info(`Online message is not send to ${channel.name} because of ${err}`);
     });
+    if (channel.nsfw) {
+      channel.send(`This channel is marked as NSFW. NSFW feature is unlocked!`)
+      .catch((err) => {
+        console.info(`Online message is not send to ${channel.name} because of ${err}`);
+      });
+
+    }
   }
 }
 
