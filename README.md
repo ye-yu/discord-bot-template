@@ -13,7 +13,7 @@ here's how to add new command:
 
 1. create `<command name>`.js
 2. inside the new file, add `call(context)` method
-  - `context` field contains two inner fields `context: type discord.js#Client` and `args: type Array` after the command
+    - `context` field contains two inner fields `context: type discord.js#Client` and `args: type Array` after the command
   
 for example, to create `/ping` command, add `ping.js`, and then in the `call(context)` method, you can send a `pong` message using `context.context.channel.send("pong")`
 
