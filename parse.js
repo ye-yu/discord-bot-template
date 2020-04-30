@@ -9,7 +9,7 @@ function parse(context) {
     content = content.substring(1);
     let { key, args } = getKeyAndArgs(content);
     try {
-      console.log(`Requiring ${key}`);
+      console.info(`Requiring ${key}`);
       let output = require(`./${key}`).call({context: context, args: args});
     } catch (err) {
       console.error(err);
